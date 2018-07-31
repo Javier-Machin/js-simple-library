@@ -6,24 +6,23 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
 </head>
 <body>
-
-  <header class="navbar">
-    <nav class="nav-links">
-      <a href="#">HOME</a>
-      <a href="#">CONTACT</a>
-      <a href="#">ABOUT</a>
-    </nav>
-  </header>
-
   <section class="main-container">
-    <header>
-    </header>
-    <section>
-      <article>
-      </article>
-    </section>
-  </section>
+    <form>
+      Title:<br>
+      <input type="text" name="title" id="form-title" value="The Book"><br>
+      Author:<br>
+      <input type="text" name="author" id="form-author" value="John Smith"><br>
+      Pages:<br>
+      <input type="text" name="pages" id="form-pages" value="1234"><br>
+      Read:<br>
+      <input type="text" name="read" id="form-read" value="true"><br><br>
 
+      <button type="button" onclick="addBook(books)">Submit</button>
+    </form>
+    <br><br>
+    <button onclick="render(books)">Render</button>
+  </section>
+  
 </body>
 <script src="./scripts/script.js"></script>
 </html>
