@@ -13,6 +13,7 @@ button {
 
 .main-container {
   width: 30%;
+  min-width: 400px;
   margin: 100px auto;
   text-align: left;
 }
@@ -38,11 +39,12 @@ button {
 .books-container {
   border: 1px solid black;
   border-radius: 2px;
+  margin-bottom: 10px;
 }
 
 .book {
   font-weight: bold;
-  margin: 10px;
+  margin: 12px;
   cursor: pointer;
 }
 

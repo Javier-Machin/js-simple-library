@@ -1,5 +1,5 @@
-const quixote = new Book("Don Quixote", "Cervantes", 980, false);
-const artOfWar = new Book("The Art of War", "Sun Tzu", 130, false);
+const quixote = new Book("Don Quixote", "Cervantes", 980, "false");
+const artOfWar = new Book("The Art of War", "Sun Tzu", 130, "false");
 const books = [quixote, artOfWar];
 const submitBtn = document.getElementById("form-submit");
 const newBookBtn = document.getElementById("new-book-button");
@@ -27,8 +27,8 @@ function render(books) {
   mainContainer.insertAdjacentElement('afterbegin', booksContainer)
   
   books.forEach(function(book) {
-    const bookInfo = `${book.title}, ${book.author}, 
-                      ${book.pages}, ${book.read}`;
+    let bookInfo = `${book.title}, ${book.author}, ${book.pages}`;
+    book.read == "true" ? bookInfo += ", yes" : bookInfo += ", no";
     const node = document.createElement("article");
     const textNode = document.createTextNode(bookInfo); 
     
@@ -43,10 +43,17 @@ function render(books) {
       }
     })
 
-    node.className = "book";                 
+    node.className = "book";
+    node.title ="Click to toggle read/not read";                 
     node.appendChild(textNode);
-    node.appendChild(deleteBtn);                              
+    node.appendChild(deleteBtn); 
+    node.addEventListener("click", function() {
+      book.toggleRead();
+      render(books);
+    })
+
     booksContainer.appendChild(node);
+
 
   })
 }
@@ -55,8 +62,15 @@ function addBook(books) {
   const title = document.getElementById("form-title").value;
   const author = document.getElementById("form-author").value; 
   const pages = document.getElementById("form-pages").value;
-  const read = document.getElementById("form-read").value;
-  
+  let read = false;
+  const readRadios = document.getElementsByName('read');
+
+  readRadios.forEach(function(radio)  {
+    if (radio.checked) {
+      read = radio.value;
+    }
+  })
+
   const newBook = new Book(title, author, pages, read);
   books.push(newBook);
 }
@@ -67,5 +81,14 @@ function Book(title, author, pages, read) {
   this.pages = pages;
   this.read = read;
 }
+
+Book.prototype.toggleRead = function() {
+  if (this.read == "true") {
+    this.read = "false";
+  } else {
+    this.read = "true";
+  }
+}
+
 
 render(books);

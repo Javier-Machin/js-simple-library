@@ -9,14 +9,17 @@
   <section class="main-container">
     <button id="new-book-button">Add new book</button>
     <form class="book-form">
-      Title:<br>
+      <label>Title:</label><br>
       <input type="text" name="title" id="form-title" value="The Book"><br>
-      Author:<br>
+      <label>Author:</label><br>
       <input type="text" name="author" id="form-author" value="John Smith"><br>
-      Pages:<br>
+      <label>Pages:</label><br>
       <input type="text" name="pages" id="form-pages" value="1234"><br>
-      Read:<br>
-      <input type="text" name="read" id="form-read" value="true"><br><br>
+      <label>Read:</label><br>
+      <input type="radio" id="yes" value=true name="read" />
+      <label for="yes">yes</label><br>
+      <input type="radio" id="no" value=false name="read" />
+      <label for="no">no</label><br><br>
       <button id="form-submit" type="button">Submit</button>
     </form>
   </section>
