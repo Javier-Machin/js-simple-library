@@ -12,7 +12,7 @@ button {
 }
 
 .main-container {
-  width: 50%;
+  width: 30%;
   margin: 100px auto;
   text-align: left;
 }
@@ -20,8 +20,8 @@ button {
 .book-form {
   border: 1px solid black;
   border-radius: 2px;
-  padding: 5px;
   height: 0;
+  padding: 10px 10px 0 10px;
   transition: height 0.5s;
   visibility: hidden;
 }
@@ -38,7 +38,6 @@ button {
 .books-container {
   border: 1px solid black;
   border-radius: 2px;
-  padding: 5px
 }
 
 .book {
@@ -49,5 +48,4 @@ button {
 
 .book button {
   margin: 0 5px;
-  
 }

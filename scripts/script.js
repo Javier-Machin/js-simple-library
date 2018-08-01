@@ -24,7 +24,7 @@ function render(books) {
 
   booksContainer = document.createElement("section");
   booksContainer.className = "books-container";
-  mainContainer.appendChild(booksContainer);
+  mainContainer.insertAdjacentElement('afterbegin', booksContainer)
   
   books.forEach(function(book) {
     const bookInfo = `${book.title}, ${book.author}, 
@@ -47,6 +47,7 @@ function render(books) {
     node.appendChild(textNode);
     node.appendChild(deleteBtn);                              
     booksContainer.appendChild(node);
+
   })
 }
 
