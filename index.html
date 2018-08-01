@@ -7,7 +7,7 @@
 </head>
 <body>
   <section class="main-container">
-    <form>
+    <form class="book-form">
       Title:<br>
       <input type="text" name="title" id="form-title" value="The Book"><br>
       Author:<br>
@@ -17,10 +17,9 @@
       Read:<br>
       <input type="text" name="read" id="form-read" value="true"><br><br>
 
-      <button type="button" onclick="addBook(books)">Submit</button>
+      <button id="form-submit" type="button">Submit</button>
     </form>
-    <br><br>
-    <button onclick="render(books)">Render</button>
+    <button id="new-book-button">Add new book</button>
   </section>
   
 </body>

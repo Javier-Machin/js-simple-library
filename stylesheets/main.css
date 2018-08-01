@@ -4,13 +4,50 @@ html, body {
   margin: 0;
 }
 
+button {
+  border: 1px solid black;
+  border-radius: 2px;
+  background: white;
+  cursor: pointer;
+}
+
 .main-container {
   width: 50%;
-  margin: auto;
-  text-align: center;
+  margin: 100px auto;
+  text-align: left;
+}
+
+.book-form {
+  border: 1px solid black;
+  border-radius: 2px;
+  padding: 5px;
+  height: 0;
+  transition: height 0.5s;
+  visibility: hidden;
+}
+
+.visible {
+  visibility: visible;
+  height: 260px;
+}
+
+.book-form input {
+  margin: 5px 0;
+}
+
+.books-container {
+  border: 1px solid black;
+  border-radius: 2px;
+  padding: 5px
 }
 
 .book {
-  text-align: left;
-  color: red;
+  font-weight: bold;
+  margin: 10px;
+  cursor: pointer;
+}
+
+.book button {
+  margin: 0 5px;
+  
 }
