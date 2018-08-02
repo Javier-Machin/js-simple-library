@@ -7,23 +7,23 @@
 </head>
 <body>
   <section class="main-container">
+    <p style="font-size: 14px; font-style: italic;">Click on the books to toggle read / not read</p>
     <button id="new-book-button">Add new book</button>
     <form class="book-form">
       <label>Title:</label><br>
-      <input type="text" name="title" id="form-title" value="The Book"><br>
+      <input type="text" name="title" id="form-title" value="The Book" maxlength="20"><br>
       <label>Author:</label><br>
-      <input type="text" name="author" id="form-author" value="John Smith"><br>
+      <input type="text" name="author" id="form-author" value="John Smith" maxlength="20"><br>
       <label>Pages:</label><br>
-      <input type="text" name="pages" id="form-pages" value="1234"><br>
+      <input type="number" name="pages" id="form-pages" value="100" min="1" max="99999"><br>
       <label>Read:</label><br>
-      <input type="radio" id="yes" value=true name="read" />
-      <label for="yes">yes</label><br>
-      <input type="radio" id="no" value=false name="read" />
-      <label for="no">no</label><br><br>
+      <input type="radio" id="yes" value="true" name="read" />
+      <label for="yes">Yes</label><br>
+      <input type="radio" id="no" value="false" name="read" />
+      <label for="no">No</label><br><br>
       <button id="form-submit" type="button">Submit</button>
     </form>
   </section>
-  
 </body>
 <script src="./scripts/script.js"></script>
 </html>

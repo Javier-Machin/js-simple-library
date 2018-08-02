@@ -5,15 +5,16 @@ const submitBtn = document.getElementById("form-submit");
 const newBookBtn = document.getElementById("new-book-button");
 const bookForm = document.querySelector(".book-form");
 
-submitBtn.addEventListener("click", function() {
-  addBook(books);
-  render(books);
-})
-
+// Toggle to show / hide new book form
 newBookBtn.addEventListener("click", function() {
   bookForm.classList.toggle("visible");
 })
 
+// Submit form button listener
+submitBtn.addEventListener("click", function() {
+  addBook(books);
+  render(books);
+})
 
 function render(books) {
   const mainContainer = document.querySelector(".main-container");
@@ -24,11 +25,15 @@ function render(books) {
 
   booksContainer = document.createElement("section");
   booksContainer.className = "books-container";
+
   mainContainer.insertAdjacentElement('afterbegin', booksContainer)
-  
+
+  // Generate the HTML to display each book as an article 
   books.forEach(function(book) {
-    let bookInfo = `${book.title}, ${book.author}, ${book.pages}`;
-    book.read == "true" ? bookInfo += ", yes" : bookInfo += ", no";
+    let bookInfo = `TITLE: ${book.title} |
+                    AUTHOR: ${book.author} |
+                    PAGES: ${String(book.pages).slice(0, 5)}`;
+    book.read == "true" ? bookInfo += " | READ: Yes" : bookInfo += " | READ: No";
     const node = document.createElement("article");
     const textNode = document.createTextNode(bookInfo); 
     
@@ -46,14 +51,18 @@ function render(books) {
     node.className = "book";
     node.title ="Click to toggle read/not read";                 
     node.appendChild(textNode);
-    node.appendChild(deleteBtn); 
+    node.appendChild(deleteBtn);
+
+    // Listener to toggle read / not read on each book 
     node.addEventListener("click", function() {
       book.toggleRead();
       render(books);
     })
 
+    // Set a different background to each article to improve clarity
+    if (books.indexOf(book) % 2 == 0) { node.style.background = "rgb(255,220,220)"; }
+    
     booksContainer.appendChild(node);
-
 
   })
 }
@@ -83,12 +92,7 @@ function Book(title, author, pages, read) {
 }
 
 Book.prototype.toggleRead = function() {
-  if (this.read == "true") {
-    this.read = "false";
-  } else {
-    this.read = "true";
-  }
+  this.read == "true" ? this.read = "false" : this.read = "true";
 }
-
 
 render(books);
