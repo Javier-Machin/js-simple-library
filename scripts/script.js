@@ -32,7 +32,7 @@ function render(books) {
   books.forEach(function(book) {
     let bookInfo = `TITLE: ${book.title} |
                     AUTHOR: ${book.author} |
-                    PAGES: ${String(book.pages).slice(0, 5)}`;
+                    PAGES: ${String(book.pages).slice(0, 4)}`;
     book.read == "true" ? bookInfo += " | READ: Yes" : bookInfo += " | READ: No";
     const node = document.createElement("article");
     const textNode = document.createTextNode(bookInfo); 
