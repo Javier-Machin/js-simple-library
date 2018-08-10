@@ -1,3 +1,14 @@
+class Book {
+  constructor(title, author, pages, read) {
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.read = read;
+  }
+
+  toggleRead() { this.read == "true" ? this.read = "false" : this.read = "true" }
+}
+
 const quixote = new Book("Don Quixote", "Cervantes", 980, "false");
 const artOfWar = new Book("The Art of War", "Sun Tzu", 130, "false");
 const books = [quixote, artOfWar];
@@ -82,17 +93,6 @@ function addBook(books) {
 
   const newBook = new Book(title, author, pages, read);
   books.push(newBook);
-}
-
-function Book(title, author, pages, read) {
-  this.title = title;
-  this.author = author;
-  this.pages = pages;
-  this.read = read;
-}
-
-Book.prototype.toggleRead = function() {
-  this.read == "true" ? this.read = "false" : this.read = "true";
 }
 
 render(books);
